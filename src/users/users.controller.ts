@@ -3,6 +3,7 @@ import { Response } from 'express';
 
 import { CreateUserDto } from '../common/dto/create-user.dto';
 import { UsersService } from './users.service';
+import { LoginUserDto } from 'src/common/dto/login-user.dto';
 
 @Controller('users')
 export class UsersController {
@@ -21,8 +22,7 @@ export class UsersController {
   }
 
   @Post('/login')
-  async login(@Res({ passthrough: true }) res: Response, @Body() createUserDto: CreateUserDto) {
-    console.log('This action is login')
+  async login(@Res({ passthrough: true }) res: Response, @Body() createUserDto: LoginUserDto) {
     
     try {
       const user = await this.usersService.findByUsername(createUserDto.name);

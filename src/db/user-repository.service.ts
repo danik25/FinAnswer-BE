@@ -10,10 +10,10 @@ export class UsersRepositoryService {
     private usersRepository: Repository<UserEntity>,
   ) {}
 
-  async insertUser(userName: string, password: string): Promise<void> {
+  async insertUser(userName: string, password: string, email: string): Promise<void> {
 
     // TODO: Check if the recode already exists, if so, update it
-    const newUser = this.usersRepository.create({userName, password});
+    const newUser = this.usersRepository.create({userName, password, email});
     this.usersRepository.save(newUser);
 
   }

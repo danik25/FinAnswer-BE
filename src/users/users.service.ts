@@ -17,7 +17,7 @@ export class UsersService {
         if(userInDB) {
           throw new HttpException("user already taken!", HttpStatus.INTERNAL_SERVER_ERROR)
         }
-        this.usersRepositoryService.insertUser(user.name, user.password);
+        this.usersRepositoryService.insertUser(user.name, user.password, user.email);
 
     } catch(e) {
         throw new HttpException(e, HttpStatus.INTERNAL_SERVER_ERROR)
