@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { UsersModule } from './users/users.module';
-import { User } from './users/user.entity';
+import { UserEntity } from './common/entities/user.entity';
 
 import { TypeOrmModule } from '@nestjs/typeorm'
 
@@ -13,10 +13,10 @@ import { TypeOrmModule } from '@nestjs/typeorm'
       username: 'root',
       password: 'password',
       database: 'postgres',
-      entities: [User],
+      entities: [UserEntity],
       synchronize: true,
     }),
     UsersModule
   ],
 })
-export class AppModule {}
+export class AppModule {} // TODO: add health/ready check
